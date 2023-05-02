@@ -28,13 +28,16 @@ def login_page():
     if login_button:
         # If correct, change it to main page. Otherwise, warning pops up.
         try:
-            query_result = select_table("users", where_dict={'user_name': username, 'password': password})
-            st.write("<h1 style='text-align:center'>Welcome, {}!</h1>".format(username), unsafe_allow_html=True)
-            st.write("<p style='text-align:center'>You have successfully logged in.</p>", unsafe_allow_html=True)
-            st.write("<p style='text-align:center'>Enjoy your wine!</p>", unsafe_allow_html=True)
-            
-            st.session_state['login_flag'] = 'login'
-            st.session_state['profile'] = query_result
+            query_result = df_user[df_user['user_name'] == username]
+            if query_result['password'].values[0] == password:
+                
+            # query_result = select_table("users", where_dict={'user_name': username, 'password': password})
+                st.write("<h1 style='text-align:center'>Welcome, {}!</h1>".format(username), unsafe_allow_html=True)
+                st.write("<p style='text-align:center'>You have successfully logged in.</p>", unsafe_allow_html=True)
+                st.write("<p style='text-align:center'>Enjoy your wine!</p>", unsafe_allow_html=True)
+                
+                st.session_state['login_flag'] = 'login'
+                st.session_state['profile'] = query_result
         except Exception as e:
             st.warning("Incorrect username or password")
 
@@ -87,14 +90,17 @@ def signup_page():
                         'acidic': acidic,
                         'embeddings': embeddings}
             
-            query_result = insert_table("users", row_dict)
+            mydata = pd.DataFrame(row_dict, index=[0])
+            mydata['embeddings'] = mydata['embeddings'].apply(decode_vector)
+            # st.session_state['profile'] = pd.DataFrame(row_dict.values(), columns=row_dict.keys())
+            # query_result = insert_table("users", row_dict)
 
             rain(emoji="✨", font_size=54, falling_speed=2, animation_length="infinite")
             st.write("<h1 style='text-align:center'>Welcome, {}!</h1>".format(name), unsafe_allow_html=True)
             st.write("<p style='text-align:center'>You have successfully signed up.</p>", unsafe_allow_html=True)
 
             st.session_state['login_flag'] = 'login'
-            st.session_state['profile'] = query_result
+            st.session_state['profile'] = mydata
         except Exception as e:
             # TODO: 유저 테이블 구현하고 예외처리 다양화
             st.warning(e)
@@ -112,9 +118,10 @@ def main_page():
     with col2:
         st.title("Welcome, we are WinePickers ✨")
         
-    st.subheader(f"{st.session_state['profile']['user_name'][0]}, your current location is {st.session_state['profile']['address'][0]}")
+    st.subheader(f"{st.session_state['profile']['user_name'].values[0]}, your current location is {st.session_state['profile']['address'].values[0]}")
 
-    recommendation = recommend_wine(df_embedding, st.session_state['profile']['embeddings'][0])
+    myvec = st.session_state['profile']['embeddings'].values[0]
+    recommendation = recommend_wine(df_embedding, myvec)
     recommendation_df = df_wine.loc[recommendation.iloc[:200].index]
 
     st.subheader("Top 5 wines of this week")
@@ -164,10 +171,10 @@ def main_page():
     update = st.button('update')
 
     if update:
-        updated_embeddings = update_my_vec(st.session_state['profile']['embeddings'][0], target_wine_vec, rate)
-        embeddings = encode_vector(updated_embeddings[0])
-        update_log = update_table('users', {'embeddings': embeddings}, {'user_name': st.session_state['profile']['user_name'][0]})
-        st.markdown(update_log)
+        updated_embeddings = update_my_vec(st.session_state['profile']['embeddings'].values[0], target_wine_vec, rate)
+        st.session_state['profile']['embeddings'].values[0] = updated_embeddings[0]
+        # update_log = update_table('users', {'embeddings': embeddings}, {'user_name': st.session_state['profile']['user_name'][0]})
+        # st.markdown(update_log)
         
         # import time
         # time.sleep(5)
@@ -175,9 +182,19 @@ def main_page():
 
 
 model = load_model()
-df_wine = select_table('wines')
-df_embedding = df_wine[['embeddings']].iloc[:, 0].values
-df_embedding = np.stack(df_embedding)
+@st.cache_resource
+def fetch_data():
+    df_user = pd.read_csv('./pages/users.csv', encoding='cp949')
+    df_user['embeddings'] = df_user['embeddings'].apply(decode_vector)
+
+    df_wine = pd.read_csv('./pages/wines.csv', encoding='utf-8')
+    df_wine['embeddings'] = df_wine['embeddings'].apply(decode_vector)
+    mask = df_wine['embeddings'].apply(len) == 256
+    df_wine = df_wine[mask].reset_index(drop=True)
+    df_embedding = np.stack(df_wine['embeddings'])
+    return df_user, df_wine, df_embedding
+
+df_user, df_wine, df_embedding = fetch_data()
 
 st.session_state.setdefault('login_flag', 'logout')
 if st.session_state['login_flag'] == 'logout':
@@ -187,3 +204,5 @@ elif st.session_state['login_flag'] == 'signup':
 elif st.session_state['login_flag'] == 'login':
     main_page()
 
+# set client_encoding='utf-8';
+# \COPY (SELECT * FROM wines) TO 'C:\Users\user\Downloads\wines.csv' WITH CSV DELIMITER ',';
