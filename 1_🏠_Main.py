@@ -2,7 +2,6 @@ from db import *
 from models import *
 
 import streamlit as st
-from streamlit_extras.let_it_rain import rain
 
 
 st.set_page_config(
@@ -95,7 +94,6 @@ def signup_page():
             # st.session_state['profile'] = pd.DataFrame(row_dict.values(), columns=row_dict.keys())
             # query_result = insert_table("users", row_dict)
 
-            rain(emoji="✨", font_size=54, falling_speed=2, animation_length="infinite")
             st.write("<h1 style='text-align:center'>Welcome, {}!</h1>".format(name), unsafe_allow_html=True)
             st.write("<p style='text-align:center'>You have successfully signed up.</p>", unsafe_allow_html=True)
 
@@ -182,18 +180,6 @@ def main_page():
 
 
 model = load_model()
-@st.cache_resource
-def fetch_data():
-    df_user = pd.read_csv('./pages/users.csv', encoding='cp949')
-    df_user['embeddings'] = df_user['embeddings'].apply(decode_vector)
-
-    df_wine = pd.read_csv('./pages/wines.csv', encoding='utf-8')
-    df_wine['embeddings'] = df_wine['embeddings'].apply(decode_vector)
-    mask = df_wine['embeddings'].apply(len) == 256
-    df_wine = df_wine[mask].reset_index(drop=True)
-    df_embedding = np.stack(df_wine['embeddings'])
-    return df_user, df_wine, df_embedding
-
 df_user, df_wine, df_embedding = fetch_data()
 
 st.session_state.setdefault('login_flag', 'logout')

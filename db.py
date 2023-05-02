@@ -5,6 +5,18 @@ import pandas as pd
 import psycopg2
 
 
+@st.cache_resource
+def fetch_data():
+    df_user = pd.read_csv('./pages/users.csv', encoding='cp949')
+    df_user['embeddings'] = df_user['embeddings'].apply(decode_vector)
+
+    df_wine = pd.read_csv('./pages/wines.csv', encoding='utf-8')
+    df_wine['embeddings'] = df_wine['embeddings'].apply(decode_vector)
+    mask = df_wine['embeddings'].apply(len) == 256
+    df_wine = df_wine[mask].reset_index(drop=True)
+    df_embedding = np.stack(df_wine['embeddings'])
+    return df_user, df_wine, df_embedding
+    
 # @st.cache_resource
 # def init_connection():
 #     """ Initialize connection. Uses st.cache_resource to only run once
