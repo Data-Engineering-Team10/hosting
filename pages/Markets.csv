@@ -1,0 +1,64 @@
+,name,cost,min_cost,max_cost,type,city,date
+marketA,Stonyridge Vineyard Larose Red Blend 2019,282090,268267,279551,Red,Waiheke Island,2019
+marketA,Chimney Rock Elevage 2000,360000,342360,356760,Red,Stags Leap District,2000
+marketA,Casa Silva Altura 2008,222676,211764,220671,Red,Colchagua Valley,2008
+marketA,Sena Aconcagua Valley 2003,800000,760800,792800,Red,Aconcagua Valley,2003
+marketA,Santa Carolina Luis Pereira 2012,205548,195476,203698,Red,Central Valley,2012
+marketA,Muga Torre Muga 2000,115620,109954,114579,Red,Rioja,2000
+marketA,Muga Aro 2001,235523,223982,233403,Red,Rioja,2001
+marketA,Chimney Rock Cabernet Sauvignon 2002,360000,342360,356760,Red,Stags Leap District,2002
+marketA,Yangarra Ironheart Shiraz 2017,300000,285300,297300,Red,McLaren Vale,2017
+marketA,Stella di Campalto Brunello di Montalcino 2013,360000,342360,356760,Red,Brunello di Montalcino,2013
+marketA,Chimney Rock Cabernet Sauvignon 2015,360000,342360,356760,Red,Stags Leap District,2015
+marketA,Montes Folly Syrah 2005,137032,130317,135798,Red,Colchagua Valley,2005
+marketA,Stag's Leap Wine Cellars FAY Cabernet Sauvignon 2006,231241,219910,229159,Red,Napa Valley,2006
+marketA,Emilio Moro Malleolus de Valderramiro 2008,259076,246381,256744,Red,Ribera del Duero,2008
+marketA,Freemark Abbey Bosché Vineyard Cabernet Sauvignon 2013,400000,380400,396400,Red,Rutherford,2013
+marketA,Amici Reserve Cabernet Sauvignon 2014,300000,285300,297300,Red,Napa Valley,2014
+marketA,Luca Nico Malbec 2010,192701,183258,190966,Red,Mendoza,2010
+marketA,Stag's Leap Wine Cellars CASK 23 Cabernet Sauvignon 2006,423942,403168,420126,Red,Napa Valley,2006
+marketB,Podere le Ripi Lupi e Sirene Riserva 2008,350000,332850,346850,Red,Brunello di Montalcino,2008
+marketB,Muga Prado Enea Gran Reserva 1998,81363,77376,80630,Red,Rioja,1998
+marketB,Podere le Ripi Lupi e Sirene Riserva 2011,350000,332850,346850,Red,Brunello di Montalcino,2011
+marketB,Podere le Ripi Lupi e Sirene Riserva 2010,350000,332850,346850,Red,Brunello di Montalcino,2010
+marketB,Hardys Eileen Hardy Shiraz 2004,250000,237750,247750,Red,McLaren Vale,2004
+marketB,Merryvale Profile 2001,184136,175113,182478,Red,Napa Valley,2001
+marketB,Amici Reserve Cabernet Sauvignon 2016,300000,285300,297300,Red,Napa Valley,2016
+marketB,Alto Estate MPHS 2011,214112,203620,212184,Red,Stellenbosch,2011
+marketB,Chimney Rock Elevage 2016,360000,342360,356760,Red,Stags Leap District,2016
+marketB,Buoncristiani Cabernet Sauvignon 2014,280000,266280,277480,Red,Napa Valley,2014
+marketB,Cayuse Vineyards En Chamberlin Vineyard Syrah 2007,380000,361380,376580,Red,Walla Walla Valley,2007
+marketB,Andrew Januik Stone Cairn 2013,94209,89592,93361,Red,Red Mountain,2013
+marketB,Bader-Mimeur Chateau de Chassagne-Montrachet Rouge 2016,120000,114120,118920,Red,Chassagne-Montrachet,2016
+marketB,Freemark Abbey Bosché Vineyard Cabernet Sauvignon 2006,400000,380400,396400,Red,Rutherford,2006
+marketB,Alpha Box & Dice Hercules 2014,130000,123630,128830,Red,McLaren Vale,2014
+marketB,Carpineto Brunello di Montalcino 2000,107056,101810,106092,Red,Brunello di Montalcino,2000
+marketB,Cayuse Vineyards En Chamberlin Vineyard Syrah 2008,380000,361380,376580,Red,Walla Walla Valley,2008
+marketB,Chimney Rock Cabernet Sauvignon 2012,360000,342360,356760,Red,Stags Leap District,2012
+marketB,Buena Vista Chateau Buena Vista Cabernet Sauvignon Napa Valley 2017,150000,142650,148650,Red,Napa Valley,2017
+marketB,Montes Montes Alpha M Red 2006,137032,130317,135798,Red,Colchagua Valley,2006
+marketB,San Pedro Altaïr 2004,188847,179593,187147,Red,Cachapoal Valley,2004
+marketB,Clos Mogador Priorat 2007,450000,427950,445950,Red,Priorat,2007
+marketB,Chimney Rock Cabernet Sauvignon 2016,360000,342360,356760,Red,Stags Leap District,2016
+marketB,Montes Purple Angel 2006,77080,73303,76386,Red,Colchagua Valley,2006
+marketB,Freemark Abbey Sycamore Vineyard Cabernet Sauvignon 2012,400000,380400,396400,Red,Rutherford,2012
+marketB,Chimney Rock Cabernet Sauvignon 2006,360000,342360,356760,Red,Stags Leap District,2006
+marketB,Buoncristiani O.P.C Proprietary Red 2014,200000,190200,198200,Red,Napa Valley,2014
+marketB,Stella di Campalto Rosso di Montalcino 2014,220000,209220,218020,Red,Rosso di Montalcino,2014
+marketB,Stonyridge Vineyard Larose Red Blend 2014,370749,352582,367412,Red,Waiheke Island,2014
+marketB,Chimney Rock Elevage 2012,360000,342360,356760,Red,Stags Leap District,2012
+marketC,Mitolo Savitar Shiraz 2005,119903,114027,118823,Red,McLaren Vale,2005
+marketC,Hartford Court Land's Edge Vineyard Pinot Noir 2018,240000,228240,237840,Red,Sonoma Coast,2018
+marketC,Louis Latour Château Corton Grancey Grand Cru 2015,450000,427950,445950,Red,Corton Grand Cru,2015
+marketC,Freemark Abbey Sycamore Vineyard Cabernet Sauvignon 2013,400000,380400,396400,Red,Rutherford,2013
+marketC,Lan Culmen Reserva Rioja 2001,162725,154751,161260,Red,Rioja,2001
+marketC,Santa Rita Bougainville Petite Sirah 2012,122472,116470,121369,Red,Maipo Valley,2012
+marketC,Amici Reserve Cabernet Sauvignon 2013,300000,285300,297300,Red,Napa Valley,2013
+marketC,Konyári Páva 2011,230384,219095,228310,Red,Balaton,2011
+marketC,Amici Reserve Cabernet Sauvignon 2015,300000,285300,297300,Red,Napa Valley,2015
+marketC,Podere le Ripi Lupi e Sirene Riserva 2009,350000,332850,346850,Red,Brunello di Montalcino,2009
+marketC,Achaval-Ferrer Finca Altamira Malbec 2004,226959,215838,224916,Red,Paraje Altamira,2004
+marketC,Buoncristiani O.P.C Proprietary Red 2015,200000,190200,198200,Red,Napa Valley,2015
+marketC,Chimney Rock Elevage 2009,360000,342360,356760,Red,Stags Leap District,2009
+marketC,Chimney Rock Elevage 2004,360000,342360,356760,Red,Stags Leap District,2004
+marketC,Bodegas Bianchi Enzo Bianchi Gran Cru 2002,154161,146607,152773,Red,San Rafael,2002
